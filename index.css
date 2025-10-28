@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS:wght@399&display=swap');
+
+
+body{
+  background-color: rgb(255, 255, 255);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: color: #00FFD1;
+  
+  font-weight: bold;
+  font-size: 2rem;
+  color: #333;
+}
+
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, #050c45, #110dfefa);
+  color: white;
+  text-shadow:
+    0 0 1px #00FFD1,
+    0 0 10px #00FFD1,
+    0 0 15px #00FFD1,
+    0 0 20px #00FFD1;
+  text-align: center;
+  padding: 60px 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 15px 10px #00000070
+}
+
+.banner h1 {
+  font-family: "Playwrite DE SAS", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  margin-left: 30px;
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+  
+}
+
+.banner p{
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif ;
+}
+
+/* Layout thành viên */
+.members {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+.member-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 25px;
+  
+  background: rgba(255, 255, 255, 0.74);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 10px #5a5a5ace;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.member-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 10px #00ffd0db;
+}
+
+.avatar {
+  width: 250px;
+  aspect-ratio: 1 / 1; 
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00aaff;
+  margin-right: 25px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.info h2 {
+  color: #0a6cff;
+  margin-bottom: 8px;
+}
+
+.info p {
+  flex-grow: 1; 
+  font-size: 0.95em;
+  margin-bottom: 10px;
+}
+
+.more {
+  align-self: flex-end;
+  text-decoration: none;
+  color: #002aff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.more:hover {
+  color: #ff0000;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  background: #222222bf;
+  color: white;
+  margin-top: 40px;
+  font-weight: 300;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
+
+
+/* === DARK MODE === */
+#darkModeToggle {
+  background: #00ffd1;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+#darkModeToggle:hover {
+  background: #00aaff;
+  color: #fff;
+}
+
+
+body.dark-mode {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+}
+
+.dark-mode .banner {
+  background: linear-gradient(135deg, #00051a, #133eff);
+  text-shadow:
+    0 0 2px #00FFD1,
+    0 0 8px #00FFD1,
+    0 0 15px #00FFD1;
+  box-shadow: 0 15px 10px #000000a0;
+}
+
+.dark-mode .member-box {
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: 0 10px 8px #00ffd0a9;
+}
+.dark-mode .member-box:hover {
+  box-shadow: 0 10px 8px #00ffd0;
+}
+.dark-mode .info h2 {
+  color: #00ffd1;
+}
+
+.dark-mode .more {
+  color: #00ffd1;
+}
+
+.dark-mode .more:hover {
+  color: #ff0066;
+}
+
+.dark-mode footer {
+  background: #000000e0;
+  color: #00ffd1;
+}
+
+
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background:   #00ffd1;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background:  #00ffd1;
+  transform: translateY(-4px);
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #0b44ff; 
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
