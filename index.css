@@ -14,7 +14,7 @@ body{
 }
 
 body {
-  background: color: #00FFD1;
+  background: #e3fffa;
   
   font-weight: bold;
   font-size: 2rem;
@@ -231,4 +231,5 @@ body.dark-mode {
   background-color: #0b44ff; 
   z-index: 9999;
   transition: width 0.1s linear;
+
 }
