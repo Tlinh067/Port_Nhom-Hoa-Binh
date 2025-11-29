@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS:wght@399&display=swap');
 
-/* --- PHẦN CODE GỐC CỦA BẠN (GIỮ NGUYÊN) --- */
+/*
+   PHẦN CODE GỐC CỦA BẠN (GIỮ NGUYÊN)
+  */
+
 body {
   background-color: rgb(255, 255, 255);
 }
@@ -15,7 +18,7 @@ body {
 body {
   background: #e3fffa;
   font-weight: bold;
-  font-size: 2rem; /* Lưu ý: Cỡ chữ gốc này khá to (32px) */
+  font-size: 2rem; /* Cỡ chữ gốc rất to (32px) */
   color: #333;
 }
 
@@ -23,12 +26,16 @@ body {
 .banner {
   background: linear-gradient(135deg, #050c45, #110dfefa);
   color: white;
-  text-shadow: 0 0 1px #00FFD1, 0 0 10px #00FFD1, 0 0 15px #00FFD1, 0 0 20px #00FFD1;
+  text-shadow:
+    0 0 1px #00FFD1,
+    0 0 10px #00FFD1,
+    0 0 15px #00FFD1,
+    0 0 20px #00FFD1;
   text-align: center;
   padding: 60px 20px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  box-shadow: 0 15px 10px #00000070;
+  box-shadow: 0 15px 10px #00000070
 }
 
 .banner h1 {
@@ -52,7 +59,6 @@ body {
   gap: 25px;
   max-width: 900px;
   margin: 40px auto;
-  padding: 0 15px; /* Thêm padding để không sát lề màn hình nhỏ */
 }
 
 .member-box {
@@ -80,7 +86,6 @@ body {
   object-fit: cover;
   border: 4px solid #00aaff;
   margin-right: 25px;
-  flex-shrink: 0; /* Đảm bảo ảnh không bị bóp méo */
 }
 
 .info {
@@ -153,7 +158,10 @@ body.dark-mode {
 
 .dark-mode .banner {
   background: linear-gradient(135deg, #00051a, #133eff);
-  text-shadow: 0 0 2px #00FFD1, 0 0 8px #00FFD1, 0 0 15px #00FFD1;
+  text-shadow:
+    0 0 2px #00FFD1,
+    0 0 8px #00FFD1,
+    0 0 15px #00FFD1;
   box-shadow: 0 15px 10px #000000a0;
 }
 
@@ -219,100 +227,88 @@ body.dark-mode {
   transition: width 0.1s linear;
 }
 
+/* ==========================================================================
+   PHẦN BỔ SUNG: TỐI ƯU HIỂN THỊ (RESPONSIVE SYSTEM)
+   Phần này dùng !important để ghi đè kích thước lớn khi ở trên điện thoại
+   ========================================================================== */
 
-/* 
-   HỆ THỐNG RESPONSIVE (Code thêm mới để tương thích mọi thiết bị)
- */
-
-/* 1. Tablet & Laptop nhỏ (Màn hình < 1024px) */
-@media (max-width: 1024px) {
+@media screen and (max-width: 900px) {
+  /* 1. Reset cỡ chữ toàn trang về chuẩn (16px) thay vì 2rem (32px) */
   body {
-    font-size: 1.5rem; /* Giảm cỡ chữ body cho đỡ choán màn hình */
-  }
-  
-  .banner h1 {
-    font-size: 50px; /* Thu nhỏ tiêu đề banner */
+    font-size: 16px !important; 
   }
 
-  .avatar {
-    width: 200px; /* Thu nhỏ avatar một chút */
-  }
-}
-
-/* 2. Tablet dọc & Mobile lớn (Màn hình < 768px) */
-@media (max-width: 768px) {
+  /* 2. Xử lý phần Banner */
   .banner {
-    padding: 40px 15px;
+    padding: 30px 15px; 
   }
   
   .banner h1 {
-    font-size: 35px;
-    margin-left: 0; /* Căn giữa lại vì màn hình nhỏ */
+    font-size: 28px !important; /* Thu nhỏ tiêu đề cho vừa màn hình */
+    margin-left: 0; 
+    line-height: 1.3;
   }
   
   .banner p {
-    font-size: 24px;
+    font-size: 18px !important;
+    margin-top: 10px;
   }
 
-  /* Chuyển thẻ thành viên thành dạng dọc */
+  /* 3. Xử lý khung chứa thành viên */
+  .members {
+    padding: 0 15px;
+    margin-top: 20px;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  /* Chuyển layout thành viên từ Ngang -> Dọc */
   .member-box {
-    flex-direction: column; /* Avatar lên trên, chữ xuống dưới */
-    align-items: center;    /* Căn giữa tất cả */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 25px;
+    padding: 25px 20px;
   }
 
+  /* 4. Xử lý Avatar */
   .avatar {
-    width: 160px;       /* Avatar nhỏ lại phù hợp điện thoại */
-    margin-right: 0;    /* Xóa lề phải */
-    margin-bottom: 20px;/* Thêm lề dưới để tách chữ */
+    width: 140px !important;  
+    height: 140px !important; 
+    margin-right: 0;
+    margin-bottom: 20px; /* Tạo khoảng cách với tên */
     border-width: 3px;
   }
 
+  /* 5. Xử lý phần thông tin */
   .info {
     width: 100%;
+    align-items: center;
   }
 
   .info h2 {
-    font-size: 1.8rem;
+    font-size: 22px !important;
+    margin-bottom: 10px;
   }
 
   .info p {
-    font-size: 1.1rem; /* Chữ mô tả dễ đọc hơn */
+    font-size: 15px !important;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify; /* Hoặc center tùy sở thích */
   }
 
+  /* 6. Nút xem thêm */
   .more {
-    align-self: center; /* Nút xem thêm ra giữa */
-    margin-top: 15px;
-    font-size: 1.2rem;
-  }
-}
-
-/* 3. Mobile nhỏ (Màn hình < 480px) */
-@media (max-width: 480px) {
-  body {
-    font-size: 1rem; /* Chữ body về kích thước tiêu chuẩn */
-  }
-
-  .banner h1 {
-    font-size: 28px;
+    align-self: center;
+    font-size: 16px !important;
+    padding: 8px 25px;
+    background: rgba(0,0,0,0.05); /* Thêm nền nhẹ để dễ thấy nút */
+    border-radius: 20px;
   }
   
-  .banner p {
-    font-size: 18px;
-  }
-
-  .member-box {
-    padding: 15px;
-    border-radius: 15px;
-  }
-
-  .avatar {
-    width: 130px;
-  }
-
+  /* Footer */
   footer {
-    font-size: 14px;
-    padding: 15px;
+    font-size: 14px !important;
+    padding: 20px 15px;
   }
 }
