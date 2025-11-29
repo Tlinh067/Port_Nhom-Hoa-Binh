@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS:wght@399&display=swap');
 
-
-body{
+/* --- PHẦN CODE GỐC CỦA BẠN (GIỮ NGUYÊN) --- */
+body {
   background-color: rgb(255, 255, 255);
 }
-
 
 * {
   margin: 0;
@@ -15,27 +14,21 @@ body{
 
 body {
   background: #e3fffa;
-  
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2rem; /* Lưu ý: Cỡ chữ gốc này khá to (32px) */
   color: #333;
 }
-
 
 /* Banner */
 .banner {
   background: linear-gradient(135deg, #050c45, #110dfefa);
   color: white;
-  text-shadow:
-    0 0 1px #00FFD1,
-    0 0 10px #00FFD1,
-    0 0 15px #00FFD1,
-    0 0 20px #00FFD1;
+  text-shadow: 0 0 1px #00FFD1, 0 0 10px #00FFD1, 0 0 15px #00FFD1, 0 0 20px #00FFD1;
   text-align: center;
   padding: 60px 20px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  box-shadow: 0 15px 10px #00000070
+  box-shadow: 0 15px 10px #00000070;
 }
 
 .banner h1 {
@@ -45,29 +38,28 @@ body {
   margin-left: 30px;
   color: rgb(255, 255, 255);
   font-size: 60px;
-  
 }
 
-.banner p{
-    font-size: 40px;
-    font-family: 'Times New Roman', Times, serif ;
+.banner p {
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Layout thành viên */
 .members {
   display: flex;
   flex-direction: column;
-  
   gap: 25px;
   max-width: 900px;
   margin: 40px auto;
+  padding: 0 15px; /* Thêm padding để không sát lề màn hình nhỏ */
 }
+
 .member-box {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   font-size: 25px;
-  
   background: rgba(255, 255, 255, 0.74);
   border-radius: 20px;
   padding: 20px;
@@ -83,11 +75,12 @@ body {
 
 .avatar {
   width: 250px;
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #00aaff;
   margin-right: 25px;
+  flex-shrink: 0; /* Đảm bảo ảnh không bị bóp méo */
 }
 
 .info {
@@ -104,7 +97,7 @@ body {
 }
 
 .info p {
-  flex-grow: 1; 
+  flex-grow: 1;
   font-size: 0.95em;
   margin-bottom: 10px;
 }
@@ -121,7 +114,6 @@ body {
   color: #ff0000;
 }
 
-
 /* Footer */
 footer {
   text-align: center;
@@ -134,9 +126,6 @@ footer {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-
-
-
 
 /* === DARK MODE === */
 #darkModeToggle {
@@ -157,7 +146,6 @@ footer {
   color: #fff;
 }
 
-
 body.dark-mode {
   background-color: #0a0a0a;
   color: #e0e0e0;
@@ -165,10 +153,7 @@ body.dark-mode {
 
 .dark-mode .banner {
   background: linear-gradient(135deg, #00051a, #133eff);
-  text-shadow:
-    0 0 2px #00FFD1,
-    0 0 8px #00FFD1,
-    0 0 15px #00FFD1;
+  text-shadow: 0 0 2px #00FFD1, 0 0 8px #00FFD1, 0 0 15px #00FFD1;
   box-shadow: 0 15px 10px #000000a0;
 }
 
@@ -176,9 +161,11 @@ body.dark-mode {
   background: rgba(20, 20, 20, 0.85);
   box-shadow: 0 10px 8px #00ffd0a9;
 }
+
 .dark-mode .member-box:hover {
   box-shadow: 0 10px 8px #00ffd0;
 }
+
 .dark-mode .info h2 {
   color: #00ffd1;
 }
@@ -196,21 +183,20 @@ body.dark-mode {
   color: #00ffd1;
 }
 
-
 #backToTop {
   position: fixed;
   bottom: 25px;
   right: 25px;
   width: 45px;
   height: 45px;
-  background:   #00ffd1;
+  background: #00ffd1;
   color: #000000;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   font-size: 18px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  display: none; 
+  display: none;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
@@ -218,7 +204,7 @@ body.dark-mode {
 }
 
 #backToTop:hover {
-  background:  #00ffd1;
+  background: #00ffd1;
   transform: translateY(-4px);
 }
 
@@ -228,8 +214,105 @@ body.dark-mode {
   left: 0;
   width: 0%;
   height: 4px;
-  background-color: #0b44ff; 
+  background-color: #0b44ff;
   z-index: 9999;
   transition: width 0.1s linear;
+}
 
+
+/* 
+   HỆ THỐNG RESPONSIVE (Code thêm mới để tương thích mọi thiết bị)
+ */
+
+/* 1. Tablet & Laptop nhỏ (Màn hình < 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 1.5rem; /* Giảm cỡ chữ body cho đỡ choán màn hình */
+  }
+  
+  .banner h1 {
+    font-size: 50px; /* Thu nhỏ tiêu đề banner */
+  }
+
+  .avatar {
+    width: 200px; /* Thu nhỏ avatar một chút */
+  }
+}
+
+/* 2. Tablet dọc & Mobile lớn (Màn hình < 768px) */
+@media (max-width: 768px) {
+  .banner {
+    padding: 40px 15px;
+  }
+  
+  .banner h1 {
+    font-size: 35px;
+    margin-left: 0; /* Căn giữa lại vì màn hình nhỏ */
+  }
+  
+  .banner p {
+    font-size: 24px;
+  }
+
+  /* Chuyển thẻ thành viên thành dạng dọc */
+  .member-box {
+    flex-direction: column; /* Avatar lên trên, chữ xuống dưới */
+    align-items: center;    /* Căn giữa tất cả */
+    text-align: center;
+    padding: 25px;
+  }
+
+  .avatar {
+    width: 160px;       /* Avatar nhỏ lại phù hợp điện thoại */
+    margin-right: 0;    /* Xóa lề phải */
+    margin-bottom: 20px;/* Thêm lề dưới để tách chữ */
+    border-width: 3px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .info h2 {
+    font-size: 1.8rem;
+  }
+
+  .info p {
+    font-size: 1.1rem; /* Chữ mô tả dễ đọc hơn */
+  }
+
+  .more {
+    align-self: center; /* Nút xem thêm ra giữa */
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+/* 3. Mobile nhỏ (Màn hình < 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem; /* Chữ body về kích thước tiêu chuẩn */
+  }
+
+  .banner h1 {
+    font-size: 28px;
+  }
+  
+  .banner p {
+    font-size: 18px;
+  }
+
+  .member-box {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .avatar {
+    width: 130px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 15px;
+  }
 }
